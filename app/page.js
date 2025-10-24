@@ -35,6 +35,10 @@ export default function Portfolio() {
                 <User className="w-4 h-4" />
                 <span>About</span>
               </button>
+              <button onClick={() => navigateTo('projects')} className={`${activePage === 'projects' ? 'text-purple-400' : 'text-gray-300'} hover:text-purple-400 transition flex items-center space-x-1`}>
+                <Code className="w-4 h-4" />
+                <span>Projects</span>
+              </button>
               <button onClick={() => navigateTo('services')} className={`${activePage === 'services' ? 'text-purple-400' : 'text-gray-300'} hover:text-purple-400 transition flex items-center space-x-1`}>
                 <Briefcase className="w-4 h-4" />
                 <span>Services</span>
@@ -61,6 +65,10 @@ export default function Portfolio() {
               <button onClick={() => navigateTo('about')} className={`${activePage === 'about' ? 'text-purple-400' : 'text-gray-300'} w-full text-left py-2 flex items-center space-x-2`}>
                 <User className="w-4 h-4" />
                 <span>About</span>
+              </button>
+              <button onClick={() => navigateTo('projects')} className={`${activePage === 'projects' ? 'text-purple-400' : 'text-gray-300'} w-full text-left py-2 flex items-center space-x-2`}>
+                <Code className="w-4 h-4" />
+                <span>Projects</span>
               </button>
               <button onClick={() => navigateTo('services')} className={`${activePage === 'services' ? 'text-purple-400' : 'text-gray-300'} w-full text-left py-2 flex items-center space-x-2`}>
                 <Briefcase className="w-4 h-4" />
@@ -154,6 +162,85 @@ export default function Portfolio() {
           </div>
         )}
 
+        {activePage === 'projects' && (
+          <div className="min-h-screen py-20 px-4">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">My Projects</h2>
+              <p className="text-gray-400 text-center mb-12 text-lg">Showcasing my best work in web development</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  { 
+                    title: 'E-Commerce Platform', 
+                    desc: 'Full-stack online shopping platform with payment integration, user authentication, and admin dashboard built with Next.js and MongoDB',
+                    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop',
+                    tech: ['Next.js', 'MongoDB', 'Stripe']
+                  },
+                  { 
+                    title: 'Task Management App', 
+                    desc: 'Collaborative project management tool with real-time updates, drag-and-drop features, and team collaboration using React and Firebase',
+                    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+                    tech: ['React', 'Firebase', 'TailwindCSS']
+                  },
+                  { 
+                    title: 'Social Media Dashboard', 
+                    desc: 'Analytics dashboard for tracking social media metrics with beautiful charts, graphs, and real-time data visualization',
+                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+                    tech: ['Vue.js', 'Chart.js', 'API']
+                  },
+                  { 
+                    title: 'Blog CMS Platform', 
+                    desc: 'Content management system for bloggers with markdown support, SEO optimization, and custom theming capabilities',
+                    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop',
+                    tech: ['Next.js', 'Sanity', 'TypeScript']
+                  },
+                  { 
+                    title: 'Restaurant Booking System', 
+                    desc: 'Online reservation platform for restaurants with table management, customer reviews, and automated email confirmations',
+                    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop',
+                    tech: ['React', 'Node.js', 'PostgreSQL']
+                  },
+                  { 
+                    title: 'Fitness Tracker App', 
+                    desc: 'Mobile-first fitness application tracking workouts, nutrition, and progress with personalized recommendations and social features',
+                    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop',
+                    tech: ['React Native', 'Express', 'MongoDB']
+                  }
+                ].map((project, idx) => (
+                  <div key={idx} className="bg-slate-800 rounded-xl overflow-hidden border border-purple-500/30 hover:border-purple-500 transition hover:shadow-2xl hover:scale-105 transform duration-300 group">
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                      <p className="text-gray-400 mb-4 text-sm leading-relaxed">{project.desc}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tech.map((tech, i) => (
+                          <span key={i} className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-xs font-semibold">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex gap-3">
+                        <button className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg transition text-sm">
+                          View Demo
+                        </button>
+                        <button className="flex-1 bg-slate-700 text-white py-2 px-4 rounded-lg font-semibold hover:bg-slate-600 transition text-sm">
+                          Source Code
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {activePage === 'services' && (
           <div className="min-h-screen py-20 px-4">
             <div className="max-w-6xl mx-auto">
@@ -226,6 +313,7 @@ export default function Portfolio() {
               <div className="space-y-2">
                 <button onClick={() => navigateTo('home')} className="block text-gray-400 hover:text-purple-400 transition">Home</button>
                 <button onClick={() => navigateTo('about')} className="block text-gray-400 hover:text-purple-400 transition">About</button>
+                <button onClick={() => navigateTo('projects')} className="block text-gray-400 hover:text-purple-400 transition">Projects</button>
                 <button onClick={() => navigateTo('services')} className="block text-gray-400 hover:text-purple-400 transition">Services</button>
                 <button onClick={() => navigateTo('contact')} className="block text-gray-400 hover:text-purple-400 transition">Contact</button>
               </div>
