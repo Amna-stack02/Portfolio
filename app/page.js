@@ -362,7 +362,7 @@ export default function Portfolio() {
                     </div>
                     <div>
                       <label className="block text-gray-300 mb-2 font-medium">Your Message</label>
-                      <textarea 
+                      <textarea   
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
