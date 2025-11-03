@@ -10,7 +10,7 @@ export default function Portfolio() {
   const navigateTo = (page) => {
     setActivePage(page);
     setIsMenuOpen(false);
-  };
+  };  
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -282,9 +282,8 @@ export default function Portfolio() {
           <div className="min-h-screen py-20 px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">Get In Touch</h2>
-              <p className="text-gray-400 text-center mb-12 text-lg">Let's work together on your next project</p>
-              
-              <div className="grid md:grid-cols-2 gap-8">
+            <p className="text-gray-400 text-center mb-12 text-lg">Let&apos;s work together on your next project</p> 
+              <div className="grid md:grid-cols-2 gap-8"> 
                 <div className="space-y-6">
                   <div className="bg-slate-800/50 backdrop-blur p-6 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition cursor-pointer" onClick={() => window.location.href = 'mailto:su1946275@gmail.com'}>
                     <div className="flex items-start space-x-4">
